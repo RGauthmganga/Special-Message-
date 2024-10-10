@@ -114,7 +114,7 @@
     </div>
 
     <!-- Click message -->
-    <div class="click-message">Click on heart</div>
+    <div class="click-message" id="clickMessage">Click on heart</div>
 
     <!-- Message Section -->
     <div class="content" id="content">
@@ -131,6 +131,9 @@
         // Smooth scroll to the content
         function scrollToContent() {
             document.querySelector('.heart-container').style.pointerEvents = 'none'; // Prevent multiple clicks
+            
+            document.getElementById('clickMessage').style.display = 'none'; // Hide the click message
+            
             setTimeout(() => { // Delay before scrolling to allow fade effect
                 document.getElementById('content').classList.add('show');
                 window.scrollTo({
