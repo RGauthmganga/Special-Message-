@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message for You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7e6f2;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Full-screen heart */
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f7e6f2;
+            z-index: 10;
+            cursor: pointer;
+            transition: opacity 1s ease-out;
+        }
+
+        .heart {
+            font-size: 200px;
+            color: #e75480;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Message content */
+        .content {
+            max-width: 800px;
+            margin: 100vh auto 0; /* Start below the heart */
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative;
+            z-index: 20; /* Ensure it's above the heart */
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #e75480;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .signature {
+            font-size: 20px;
+            margin-top: 30px;
+            color: #e75480;
+        }
+
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #e75480;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #d1436a;
+        }
+
+        .content.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Heart Section -->
+    <div class="heart-container" onclick="scrollToContent()">
+        <div class="heart">❤️</div>
+    </div>
+
+    <!-- Message Section -->
+    <div class="content" id="content">
+        <h1>A Special Message for You</h1>
+        <p>Hey Puppy,</p>
+        <p>Sorry 🥺, I've been replaying our last conversation, and honestly… I messed up. I hate how things ended, and I’ve been kicking myself ever since. I should’ve listened better and not let things get out of hand.</p>
+        <p>You mean the world to me, and I really don’t want us to be on bad terms. I care way too much about you to let something like this mess things up. I guess sometimes I forget that even when we argue, I’m still really lucky to have you in my life.</p>
+        <p>Let’s hit the reset button like you said?. How hearts whats to be united so do yours. I miss your smile, your energy, and just... you. Can we talk soon and sort things out? I’m ready to listen, and I’m ready to make things right.</p>
+        <p class="signature">Miss you, <br>Sree</p>
+        <a class="button" href="https://wa.me/+918078551737?text=Hey, I'm Gopika, whats ur's?">Reset</a>
+    </div>
+
+    <script>
+        // Smooth scroll to the content
+        function scrollToContent() {
+            document.querySelector('.heart-container').style.pointerEvents = 'none'; // Prevent multiple clicks
+            setTimeout(() => { // Delay before scrolling to allow fade effect
+                document.getElementById('content').classList.add('show');
+                window.scrollTo({
+                    top: document.getElementById('content').offsetTop,
+                    behavior: 'smooth'
+                });
+            }, 500); // Match this delay with transition time for opacity
+        }
+    </script>
+
+</body>
+</html>
